@@ -2,12 +2,13 @@ require 'date'
 
 class Schedule
 
-    attr_reader :calendar
+    attr_reader :calendar, :open_bm_hash, :open_bm_array
 
     def initialize
         @calendar = []
         @dates_bm = {}
-        @open_bm = []
+        @open_bm_hash = {}
+        @open_bm_array = []
     end
 
     def add_boxing_match(bm)
@@ -27,13 +28,22 @@ class Schedule
                 puts key
                 i += 1
             end
-            if i == 0
-                print 'No matches now'
-                print key
-            end 
         end
-
+        print "No boxing matches open now" if i == 0
     end
 
+    def return_open_boxing_matches
+        @open_bm_hash = {}
+        @open_bm_array = []
+        i = 1
+        @dates_bm.each do |key, value|
+            if value == Date.today.to_s
+            @open_bm_hash[i] = key 
+            @open_bm_array << i.to_s + ") " + key
+            i += 1
+            end
+        end
+        return @open_bm_array
+    end
 
 end
