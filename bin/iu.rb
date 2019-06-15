@@ -11,7 +11,8 @@ class UserInterface
         @scorer = Scorer.new(schedule)
         schedule_open
         @scorer.offer_match_from_open 
-        @scorer.selectu_match_from_open 
+        @scorer.select_match_from_open 
+        
 
     end
 
