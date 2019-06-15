@@ -14,3 +14,16 @@ In /lib/ we can find the following classes
 * *user* A class for the users scoring the matches
 * *schedule* A class that will deal with the data of the matches (when do they start, etc.)
 * *round* A class for each round of a boxing match (thinking about suprresing this one)
+
+
+## Deployment
+
+Clone the project and execute it going into the bin folder and writting the following line into your terminal:
+
+`````
+ruby iu.rb
+`````
+
+## Technologies
+
+This project has been build with ruby 2.6.1
