@@ -18,7 +18,13 @@ In /lib/ we can find the following classes
 
 ## Deployment
 
-Clone the project and execute it going into the bin folder and writting the following line into your terminal:
+Clone the project
+
+`````
+git clone git@github.com:samgaco/betbox-dummy.git
+`````
+
+Execute it going into the bin folder and writting the following line into your terminal:
 
 `````
 ruby iu.rb
