@@ -22,9 +22,13 @@ class UserInterface
 end
 
 sched = Schedule.new
-bm = BoxingMatch.new('Tyson Fury', 'Tom Schwarz', 'Heavyweight', '2019-06-15')
+bm = BoxingMatch.new('Tyson Fury', 'Tom Schwarz', 'Heavyweight', Date.today.to_s)
+bm_2 = BoxingMatch.new('Example fighter', 'Example fighter', 'Heavyweight', Date.today.to_s)
+
 
 sched.add_boxing_match(bm)
+sched.add_boxing_match(bm_2)
+
 
 betbox = UserInterface.new(sched)
 betbox.schedule_open

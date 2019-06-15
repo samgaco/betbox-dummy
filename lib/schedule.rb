@@ -15,7 +15,7 @@ class Schedule
         #this should add the data of the boxing match to a database
         
         @calendar << [bm.fighter1 + " " +  bm.fighter2 + " " + bm.date]
-        @dates_bm[bm.date] = bm.fighter1 + " vs " + bm.fighter2
+        @dates_bm[bm.fighter1 + " vs " + bm.fighter2] = bm.date
 
     end
 
@@ -23,8 +23,8 @@ class Schedule
     def open_matches_now?
         i = 0
         @dates_bm.each do |key, value|
-            if key == Date.today.to_s
-                print value
+            if value == Date.today.to_s
+                puts key
                 i += 1
             end
             if i == 0
