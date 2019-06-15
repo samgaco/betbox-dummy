@@ -3,12 +3,14 @@ require 'date'
 class Schedule
 
     attr_reader :calendar, :open_bm_hash, :open_bm_array
+    attr_accessor :dic_bms
 
     def initialize
         @calendar = []
         @dates_bm = {}
         @open_bm_hash = {}
         @open_bm_array = []
+        @dic_bms = {}
     end
 
     def add_boxing_match(bm)
@@ -17,6 +19,7 @@ class Schedule
         
         @calendar << [bm.fighter1 + " " +  bm.fighter2 + " " + bm.date]
         @dates_bm[bm.fighter1 + " vs " + bm.fighter2] = bm.date
+        @dic_bms[bm.fighter1 + " vs " + bm.fighter2] = bm
 
     end
 

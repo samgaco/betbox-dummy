@@ -11,7 +11,10 @@ class UserInterface
         @scorer = Scorer.new(schedule)
         schedule_open
         @scorer.offer_match_from_open 
-        @scorer.select_match_from_open 
+        @selected_match = @scorer.select_match_from_open 
+        number_rounds_to_score
+        @current_match_obj = @schedule.dic_bms[@selected_match]
+        #print @current_match_obj.rounds[1].fighter1 => prints tyson fury
         
 
     end
@@ -26,6 +29,11 @@ class UserInterface
         puts @schedule.calendar
     end
 
+    def number_rounds_to_score
+        w_class= @schedule.dic_bms[@selected_match].weight_class
+        n_rounds = @schedule.dic_bms[@selected_match].num_rounds.to_s
+        puts  'This ' + w_class + ' bout has ' +  n_rounds + " rounds"
+    end
 
 end
 

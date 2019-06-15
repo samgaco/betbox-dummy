@@ -20,12 +20,10 @@ class Scorer
         match_number = gets.chomp().to_i
         puts "You selected: ",  @schedule.open_bm_hash[match_number]
         puts "\n"
-
-
+        return  @schedule.open_bm_hash[match_number]
     end
 
-    def score_this_round
-
+    def score_match(bm)
 
     end
 
