@@ -27,7 +27,6 @@ class Schedule
                 print value
                 i += 1
             end
-
             if i == 0
                 print 'No matches now'
                 print key

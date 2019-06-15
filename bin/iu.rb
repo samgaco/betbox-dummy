@@ -5,22 +5,17 @@ require_relative '../lib/schedule.rb'
 class UserInterface
 
     def initialize(schedule)
-
         @schedule = schedule
-
-
     end
 
-    def schedule
-        
+    def schedule_open    
         puts "\nOpen boxing matches..."
         @schedule.open_matches_now?
-        
+    end
 
+    def schedule_next
         puts "\nNext boxing matches..."
         puts @schedule.calendar
-
-
     end
 
 
@@ -32,4 +27,4 @@ bm = BoxingMatch.new('Tyson Fury', 'Tom Schwarz', 'Heavyweight', '2019-06-15')
 sched.add_boxing_match(bm)
 
 betbox = UserInterface.new(sched)
-betbox.schedule
+betbox.schedule_open
