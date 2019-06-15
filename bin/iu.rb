@@ -15,17 +15,21 @@ class UserInterface
         number_rounds_to_score
         @current_match_obj = @schedule.dic_bms[@selected_match]
         #print @current_match_obj.rounds[1].fighter1 => prints tyson fury
-        
+        round_counter = 1
+        @current_match_obj.num_rounds.times do 
+            @scorer.score_match(@current_match_obj, round_counter)
+            round_counter += 1
+        end
 
     end
 
     def schedule_open    
-        puts "\nOpen boxing matches..."
+        puts "\nOpen boxing matches...\n"
         @schedule.open_matches_now?
     end
 
     def schedule_next
-        puts "\nNext boxing matches..."
+        puts "\nNext boxing matches...\n"
         puts @schedule.calendar
     end
 
@@ -37,12 +41,22 @@ class UserInterface
 
 end
 
+#example
+
 sched = Schedule.new
+
 bm = BoxingMatch.new('Tyson Fury', 'Tom Schwarz', 'Heavyweight', Date.today.to_s)
-bm_2 = BoxingMatch.new('Example fighter1', 'Example fighter2', 'Heavyweight', Date.today.to_s)
+bm_2 = BoxingMatch.new('Dorticos', 'Tabiti', 'Heavyweight', Date.today.to_s)
+bm_3 = BoxingMatch.new('Warrington', 'Galahad', 'Heavyweight', Date.today.to_s)
+bm_4 = BoxingMatch.new('Briedis', 'Glowacki', 'Heavyweight', Date.today.to_s)
+bm_5 = BoxingMatch.new('Harrison', 'Jermel Charlo', 'Heavyweight', Date.today.to_s)
 
 
 sched.add_boxing_match(bm)
 sched.add_boxing_match(bm_2)
+sched.add_boxing_match(bm_3)
+sched.add_boxing_match(bm_4)
+sched.add_boxing_match(bm_5)
+
 
 betbox = UserInterface.new(sched)

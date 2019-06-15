@@ -23,12 +23,13 @@ class Schedule
 
     end
 
-
     def open_matches_now?
         i = 0
         @dates_bm.each do |key, value|
             if value == Date.today.to_s
+                puts "\n"
                 puts key
+                puts "\n"
                 i += 1
             end
         end
