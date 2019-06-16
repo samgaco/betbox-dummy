@@ -17,8 +17,17 @@ class UserInterface
         #print @current_match_obj.rounds[1].fighter1 => prints tyson fury
         round_counter = 1
         @current_match_obj.num_rounds.times do 
-            @scorer.score_match(@current_match_obj, round_counter)
-            round_counter += 1
+            if @scorer.is_ko?(@current_match_obj) == 2
+                @scorer.score_match(@current_match_obj, round_counter)
+                round_counter += 1
+            else 
+                if @current_match_obj.winner = @current_match_obj.fighter1
+                    @scorer.write_in_file(@current_match_obj, round_counter, 'WON', 'LOST')
+                else 
+                    @scorer.write_in_file(@current_match_obj, round_counter, 'LOST', 'WON')
+                end
+                break
+            end
         end
 
     end

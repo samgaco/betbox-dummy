@@ -4,7 +4,7 @@ require_relative '../lib/round.rb'
 class BoxingMatch
 
     attr_reader :fighter1, :fighter2, :date, :num_rounds, :weight_class
-    attr_accessor :started, :rounds
+    attr_accessor :started, :rounds, :winner
 
     def initialize(fighter1, fighter2, weight_class, date, titles = 0, num_rounds=12)
         @num_rounds = num_rounds
@@ -16,6 +16,7 @@ class BoxingMatch
         started?
         @rounds = {}
         set_rounds
+        @winner = nil
     end
 
     def started?
